@@ -9,8 +9,7 @@ const contactmeRoute = require('./contactme');
 require("dotenv").config();
 
 const MONGO_URL = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}:${process.env.MONGO_PORT}/${process.env.MONGO_COLLECTION}`;
-console.log(MONGO_URL);
-mongoose.connect(MONGO_URL, {
+mongoose.connect(process.env.MONGO_URI || MONGO_URL, {
 	useNewUrlParser: true
 }, (err) => {
 	if (!err) {
@@ -26,11 +25,6 @@ app.use('/contactme',contactmeRoute);
 app.get("/", (req, res) => {
 	res.send("What");
 });
-
-/*const port = process.env.PRODUCTION || 8080;
-app.listen(port, () => {
-	console.log("Listenting");
-});*/
 
 https.createServer({
 	key: fs.readFileSync('server.key'),
