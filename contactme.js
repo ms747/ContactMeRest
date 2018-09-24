@@ -2,8 +2,15 @@ const express = require("express");
 const Contacts = require("./schemas/Contacts");
 const routes = express.Router();
 
-routes.get("/", (req, res) => {
-  res.send("Hi from contactme");
+routes.get("/", (req, res) => { 
+  Contacts.find({},(err,msg)=>{
+    if(err){
+      res.send(err);
+    }
+    else{
+      console.log(msg)
+    }
+  })
 });
 
 routes.post("/", (req, res) => {
