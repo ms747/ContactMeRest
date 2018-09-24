@@ -1,4 +1,4 @@
-# REST API
+# :books: REST API
 
 * [x] Install all dependencies
   * [x] Express, cors, morgan, mongodb, mongoose, body-parser
