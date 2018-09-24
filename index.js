@@ -34,16 +34,16 @@ app.get("/", (req, res) => {
   res.send("What");
 });
 
-https
-  .createServer(
-    {
-      key: fs.readFileSync("server.key"),
-      cert: fs.readFileSync("server.cert")
-    },
-    app
-  )
-  .listen(8080, () => {
-    console.log("HTTPS server is running");
-  });
+// https
+//   .createServer(
+//     {
+//       key: fs.readFileSync("server.key"),
+//       cert: fs.readFileSync("server.cert")
+//     },
+//     app
+//   )
+//   .listen(8080, () => {
+//     console.log("HTTPS server is running");
+// });
 
-// app.listen(8080);
+app.listen(8080);
